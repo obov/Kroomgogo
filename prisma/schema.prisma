@@ -1,0 +1,68 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["referentialIntegrity"] // 다른 객체에 연결하는 경우 그 객체가 존재하길 바란다 ...
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+  referentialIntegrity = "prisma"
+}
+
+
+model User {
+  userId    Int     @id @default(autoincrement())
+  email     String  @unique
+  identifier String? @unique
+  size      Int? 
+  nickname  String? @unique
+  password  String
+  refreshToken String ?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  comment Comment[]
+  style Style[]
+}
+
+model Product {
+  productId    Int     @id @default(autoincrement())
+  price Int
+  nameEng String
+  brand String
+  nameKr String
+  quickdlivery Boolean
+  imgUrl String   @db.VarChar(500)
+  pid String
+  createdAt DateTime @default(now())
+}
+
+model Style {
+  styleId Int @id @default(autoincrement())
+  identifier String @unique
+  profileImg String
+  styleImg String
+  hashtag String
+  like Int
+  content String  
+  user User @relation(fields: [userId], references: [identifier],onDelete: Cascade)
+  userId String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  comment Comment[]
+}
+
+model Comment {
+  commentId Int @id @default(autoincrement())
+  identifier String @unique
+  comment String
+  user User @relation(fields: [userId], references: [identifier],onDelete: Cascade)
+  userId String
+  style Style @relation(fields: [styleId], references: [identifier],onDelete: Cascade)
+  styleId String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
