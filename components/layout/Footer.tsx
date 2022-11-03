@@ -70,7 +70,7 @@ const Footer = () => {
           <li className="mr-5 w-14 h-4">이용약관</li>
           <li className="mr-5 w-28 h-4 font-bold">개인정보처리방침</li>
         </ul>
-        <div className="absolute top-0 right-0 w-28 h-6 bg-red-200"></div>
+        <div className="absolute top-0 right-0 w-28 h-6 "></div>
         <div className="w-full ">
           <div>
             <dl>
