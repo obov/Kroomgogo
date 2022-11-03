@@ -91,45 +91,22 @@ const BrandArray1: Array<Brand | undefined> = [
     ImageUrl:
       "https://kream-phinf.pstatic.net/MjAyMjA4MjJfNTAg/MDAxNjYxMTMyNDY2ODM1.IYpY8jJHjZTN9g-Yjc9HJ3x7npeZ-0VCrMr4KApSSNMg.a_Wtikd-hRYxM1nImn9s94MVpuzoLz04JPpGOvQM52Mg.JPEG/a_1d7ab41649cc478988f6759f8d6c2bc0.jpg?type=m_webp",
   },
-  /*  {
-    name: "우영미",
-
-    ImageUrl:
-      "https://kream-phinf.pstatic.net/MjAyMjA4MjJfMjUy/MDAxNjYxMTMyNTE3NDkw.WBGPz7YTPljlTjBVVGNKHY8a0UohliA2ahbwJmqF4rAg.4QYXLQna4D-CHul0MSeru4vP1dcn-qRVkPDuezT3_5sg.JPEG/a_5f636bae775f4b5f8538d969e6916238.jpg?type=m_webp",
-  },
   {
     name: "에르메스",
+    brand: "Hermes",
     ImageUrl:
       "https://kream-phinf.pstatic.net/MjAyMjA4MjJfMTU2/MDAxNjYxMTMyMjc3ODYy.o_bZ8NwB1fDxBycvBadiwSjJ3sJrAfNcgzHXZO3SCskg.U9-45gdxEevSSwnM8xAHqDBdIsBhbR4TCwK3xrBmMaIg.JPEG/a_41ee4f97c403419784fe145cbfe9e950.jpg?type=m_webp",
   },
   {
+    name: "우영미",
+    brand: "Wooyoungmi",
+    ImageUrl:
+      "https://kream-phinf.pstatic.net/MjAyMjA4MjJfMjUy/MDAxNjYxMTMyNTE3NDkw.WBGPz7YTPljlTjBVVGNKHY8a0UohliA2ahbwJmqF4rAg.4QYXLQna4D-CHul0MSeru4vP1dcn-qRVkPDuezT3_5sg.JPEG/a_5f636bae775f4b5f8538d969e6916238.jpg?type=m_webp",
+  },
+  {
     name: "아크테릭스",
+    brand: "Arc'teryx",
     ImageUrl:
       "https://kream-phinf.pstatic.net/MjAyMjA5MzBfMjMz/MDAxNjY0NTM2NzM2Mzc1.6w2bcZkBccLv112TzFBOvWKzBsx8qE4A4Q4ODq5uz6Ig.qOOuTt5_Ch5khC3ODXUGnh1s1ErTwxg42w4fG2lzzDAg.JPEG/a_54af49e527524cdc98db28d6fb1ffade.jpg?type=m_webp",
   },
-  {
-    name: "렉토",
-    ImageUrl:
-      "https://kream-phinf.pstatic.net/MjAyMjEwMDdfMTEx/MDAxNjY1MTM0ODM4MDMw.HzVvSOi98fjQmP3oroAmNe2sR32FZDFbobzy7tjpIZ4g.reteIbS3HkHf-UxIRYF-BIHFxCpH1JrRcEFSmcJVxfMg.JPEG/a_02632df7a3a049e7b6037802a5a206b4.jpg?type=m_webp",
-  },
-  {
-    name: "샤넬",
-    ImageUrl:
-      "https://kream-phinf.pstatic.net/MjAyMjA4MjJfODMg/MDAxNjYxMTMyMjY2NDU0.veNBMpvgteBr5I5SLuqNPHR8CkwWhEytMWZoG735frkg.PerHHfgDwBfbVU1BIwEXChh2_-w8u261iDgwUJiCp54g.JPEG/a_e37129ba9c134102b8f886ee9cfc5b57.jpg?type=m_webp",
-  },
-  {
-    name: "디올",
-    ImageUrl:
-      "https://kream-phinf.pstatic.net/MjAyMjA4MjJfMjM2/MDAxNjYxMTMyMzE0NTg5.f8aopPNBfz2TiMXJPHCA4cDSE564M-5m_1CVOqBaMJcg.LP8fIRuj3KwekpzWqPNM1E7udU5MgzCeyeVG5hL8oFog.JPEG/a_dd2fc85edf3b45e18d1c1b83180c004c.jpg?type=m_webp",
-  },
-  {
-    name: "스톤 아일랜드",
-    ImageUrl:
-      "https://kream-phinf.pstatic.net/MjAyMjA4MjJfMTgg/MDAxNjYxMTMyNDg5MzI4.91XVGjgCI_MCIl_wqButgXZUy7kdk_yXjOn2kg8y6AEg.dyIleHyozgiFkXvyk8pAn0SUAuz2IkwxqXxVC1Clb48g.JPEG/a_36de4c2d690d423ea5ba7a876b00ebd3.jpg?type=m_webp",
-  },
-  {
-    name: "보테가 베네타",
-    ImageUrl:
-      "https://kream-phinf.pstatic.net/MjAyMjA4MjJfMTY2/MDAxNjYxMTMyNDE3MDg1.NH05zJR5hBf3wHvQNhnvKLVxlGLtXBwaLYNuxsXQL78g.B2wHGjWAx_2n6oXfK4gy92vHpu7hbjin0U_XNwa8mlcg.JPEG/a_fe6d110270b4422e9d35b90e66a3235d.jpg?type=m_webp",
-  }, */
 ];

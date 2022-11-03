@@ -88,11 +88,10 @@ const Main = () => {
         <Fragment key={i}>
           <Showwindow items={page.data} />
           <img className="mt-3" src={bannerImgs[i]} alt="" />
+          {i === 0 ? <BrandFocus /> : null}
         </Fragment>
       ))}
-      {/* <BrandFocus />
-      <div>
-      </div>*/}
+      <div></div>
 
       <div ref={ref}>
         <Banner />
