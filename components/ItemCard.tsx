@@ -7,7 +7,7 @@ interface Props {
 const ItemCard = ({ item }: Props) => {
   return (
     <div className="w-72 flex-1 my-5 px-3">
-      <div className="w-full h-auto">
+      <div className="w-full h-auto cursor-pointer">
         <div
           className={cls("h-[282px] relative rounded-xl")}
           style={{ backgroundColor: colorDice() }}

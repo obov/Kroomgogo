@@ -13,30 +13,34 @@ const Header = () => {
     <div className="fixed z-10 bg-white">
       <div className="flex w-screen h-[2.1rem] p-[8px] border-solid border-b items-center justify-end">
         <div className="flex items-stretch flex-row text-[0.8rem]">
-          <div className="mr-[1.4rem]">고객센터</div>
-          <div className="mr-[1.4rem]">관심상품</div>
-          <div className="mr-[1.4rem]">마이페이지</div>
-          <div onClick={handleClickLogin} className="mr-[1.8rem]">
+          <div className="mr-[1.4rem] cursor-pointer">고객센터</div>
+          <div className="mr-[1.4rem] cursor-pointer">관심상품</div>
+          <div className="mr-[1.4rem] cursor-pointer">마이페이지</div>
+          <div
+            onClick={handleClickLogin}
+            className="mr-[1.8rem] cursor-pointer"
+          >
             로그인
           </div>
         </div>
       </div>
       <div className="flex marker:w-screen h-[4.8rem] border-solid border-b justify-between items-center">
-        <div onClick={handleClickLogo} className="ml-[3rem]">
+        <div onClick={handleClickLogo} className="ml-[3rem] cursor-pointer">
           <img src="/kroom.png" alt="kloom" />
         </div>
         <div className="flex items-stretch flex-row justify-end">
-          <div className="mr-[2rem] text-[1.4rem]">STYLE</div>
-          <div className="mr-[2rem] text-[1.4rem]">SHOP</div>
-          <div className="mr-[2rem] text-[1.4rem]">ABOUT</div>
-          <div className="mr-[2rem]">
+          <div className="mr-[2rem] text-[1.4rem] cursor-pointer">STYLE</div>
+          <div className="mr-[2rem] text-[1.4rem] cursor-pointer">SHOP</div>
+          <div className="mr-[2rem] text-[1.4rem] cursor-pointer">ABOUT</div>
+          <div className="mr-[2rem] cursor-pointer">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth={1.8}
               stroke="currentColor"
-              className="w-9 h-9">
+              className="w-9 h-9"
+            >
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
