@@ -160,9 +160,9 @@ function Brands() {
     return data;
   });
 
-  const { refetch } = useInfiniteQuery({});
+  /* const { refetch } = useInfiniteQuery({});
   console.log(res);
-  console.log(brandName.branditem);
+  console.log(brandName.branditem); */
 
   const [navStates, setNavStates] = useState({ isFadeout: true, to: "" });
 
