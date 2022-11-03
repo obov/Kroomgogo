@@ -10,19 +10,53 @@ import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 import Spinner from "../components/Spinner";
 import { useInView } from "react-intersection-observer";
 import Banner from "../components/Banner";
+import { cls } from "../utils";
 
 const bannerImgs = [
-  "https://kream-phinf.pstatic.net/MjAyMjEwMzFfNDYg/MDAxNjY3MTg1NDYyNjc0.2Vb7XJhsAeUUSbree2v99RMAcAG99BHoRpqtUMSxpKAg.VNOsl5UYTwzEu20AKVgdiwDuXhZYFli6dCg9St7GrbYg.JPEG/a_9a770fc5d86143a49dd2cb8b1fab7b72.jpg?type=m_2560",
-  "https://kream-phinf.pstatic.net/MjAyMjExMDFfOTIg/MDAxNjY3MzAyMDE2ODYx.zMou_mnGPiLsORrtUnfdwxFbgl7PQyBRxnrOfeQ3ljgg.h9vf0OmEr_GSHR-Y7JXudfB9BqTyUcpKUdnyV7bpelUg.JPEG/a_412a8400e2bf4a409ff3ca77367e6ce3.jpg?type=m_2560",
-  "https://kream-phinf.pstatic.net/MjAyMjEwMzFfMjM2/MDAxNjY3MTk5NzAxOTM0.4K6Bbc-eJEkV7Bewne2bZEdfVDPWWHsxhCvMYQXG04Eg.p-sHx_P22t3fBkp-br29VT7YrHWKaEU_GTXFTZOPpmMg.JPEG/a_2c07984be8754180a8d5f10834f48817.jpg?type=m_2560",
-  "https://kream-phinf.pstatic.net/MjAyMjEwMzFfMTMx/MDAxNjY3MTg1ODc0Mjgx.EV4v89RbuXQoFqNG35KCzConD7MNRTjx50q8hS1itKEg.TnTQooekZZmtWSYJPLqM2UZxv0M_XsqZu7Bi-ehGjEcg.JPEG/a_0b91b248d9f94594868a60362fe76b84.jpg?type=m_2560",
-  "https://kream-phinf.pstatic.net/MjAyMjEwMzFfMjI5/MDAxNjY3MTg2MDEwNjg0.3oHQzX52LozyQjWswNAFJ2Q-8733P3544sew_gXWcIgg.PLdTYwEsDSOVGdUwvB2Z8DFi0Yo3aTKWGg2OQYRcjZwg.JPEG/a_f2dbac09ff7a41c2b1a4b3aa5dcdfa11.jpg?type=m_2560",
-  "https://kream-phinf.pstatic.net/MjAyMjEwMzFfMjUy/MDAxNjY3MTg2MTM0NzI4.Tum3pHOK4poSvexJGxMjJqMNz4GIxRgefWV_zyXxLB0g.qywFOCEskv_meyO3N7y6MDGz1EwdmoWDSLUM-pxKw8Eg.JPEG/a_e3e3733b24464b9480e68674d40e5c6d.jpg?type=m_2560",
-  "https://kream-phinf.pstatic.net/MjAyMjEwMzFfOTcg/MDAxNjY3MTg2Mjg1Mzkx.9sazfHrPiXlE3H1rNJ-QJmhq4Gm6h9xfk6deRBv_XXog.v5-ETBfxNv4UoRd_UZwxSX3hnd2QYdMCT07nYLihpDwg.JPEG/a_59b5205aeac342a2ad0a460b9b4e0cff.jpg?type=m_2560",
-  "https://kream-phinf.pstatic.net/MjAyMjEwMzFfMTA0/MDAxNjY3MTg2NDIxNzgz.W3e9jsSynIfT3F7K5w6MYYQRUpRypWyR0P0EesRVx0og.mhfz_0yWcmS1uucwlaK6czNNJxqt6kJLpRqUYY8PJuMg.JPEG/a_fb1d8feef429433ea07679d833d658d7.jpg?type=m_2560",
-  "https://kream-phinf.pstatic.net/MjAyMjEwMzFfMjY4/MDAxNjY3MTg2NDk3MjA2.RUbBQrOHCWKuYwpHHWu0_-CHuGjBISweIc0ISA6PKuYg.2wG_T21f5zW-m2fnqYW6IRjEQD4y4ND6nFxp34IS1Rkg.JPEG/a_a06df9239c8348128d7fe71fc08b2210.jpg?type=m_2560",
-  "https://kream-phinf.pstatic.net/MjAyMjEwMzFfNCAg/MDAxNjY3MTg2MzU1ODU0.N6cfTjjy3k8B28gJWSdtnbZ0E2jgCNNilmT53S_cxsUg.MxjzTZJi6DCxJkopiSZ3f3jWUuzOpD-Kq3QEB4DVVZYg.JPEG/a_5377b899ce674b669a247f23fcf03138.jpg?type=m_2560",
-  "https://kream-phinf.pstatic.net/MjAyMjEwMzFfOTMg/MDAxNjY3MTg2MTk5MTM2.le0H2sm8Vsjyk2aoF_BbqUfCirjiLRCW6BlxhPudRxgg.0VZBAg-l-Qx7zDxLq0oaoNZfuNMALZcreDnAcrFBGZMg.JPEG/a_417c5780398b486cafea53bc300a1e2b.jpg?type=m_2560",
+  {
+    url: "https://kream-phinf.pstatic.net/MjAyMjEwMzFfNDYg/MDAxNjY3MTg1NDYyNjc0.2Vb7XJhsAeUUSbree2v99RMAcAG99BHoRpqtUMSxpKAg.VNOsl5UYTwzEu20AKVgdiwDuXhZYFli6dCg9St7GrbYg.JPEG/a_9a770fc5d86143a49dd2cb8b1fab7b72.jpg?type=m_2560",
+    color: "bg-[#dfceb4]",
+  },
+  {
+    url: "https://kream-phinf.pstatic.net/MjAyMjExMDFfOTIg/MDAxNjY3MzAyMDE2ODYx.zMou_mnGPiLsORrtUnfdwxFbgl7PQyBRxnrOfeQ3ljgg.h9vf0OmEr_GSHR-Y7JXudfB9BqTyUcpKUdnyV7bpelUg.JPEG/a_412a8400e2bf4a409ff3ca77367e6ce3.jpg?type=m_2560",
+    color: "bg-[#615547]",
+  },
+  {
+    url: "https://kream-phinf.pstatic.net/MjAyMjEwMzFfMjM2/MDAxNjY3MTk5NzAxOTM0.4K6Bbc-eJEkV7Bewne2bZEdfVDPWWHsxhCvMYQXG04Eg.p-sHx_P22t3fBkp-br29VT7YrHWKaEU_GTXFTZOPpmMg.JPEG/a_2c07984be8754180a8d5f10834f48817.jpg?type=m_2560",
+    color: "bg-[#575a51]",
+  },
+  {
+    url: "https://kream-phinf.pstatic.net/MjAyMjEwMzFfMTMx/MDAxNjY3MTg1ODc0Mjgx.EV4v89RbuXQoFqNG35KCzConD7MNRTjx50q8hS1itKEg.TnTQooekZZmtWSYJPLqM2UZxv0M_XsqZu7Bi-ehGjEcg.JPEG/a_0b91b248d9f94594868a60362fe76b84.jpg?type=m_2560",
+    color: "bg-[#d5d7e3]",
+  },
+  {
+    url: "https://kream-phinf.pstatic.net/MjAyMjEwMzFfMjI5/MDAxNjY3MTg2MDEwNjg0.3oHQzX52LozyQjWswNAFJ2Q-8733P3544sew_gXWcIgg.PLdTYwEsDSOVGdUwvB2Z8DFi0Yo3aTKWGg2OQYRcjZwg.JPEG/a_f2dbac09ff7a41c2b1a4b3aa5dcdfa11.jpg?type=m_2560",
+    color: "bg-[#bdb1b1]",
+  },
+  {
+    url: "https://kream-phinf.pstatic.net/MjAyMjEwMzFfMjUy/MDAxNjY3MTg2MTM0NzI4.Tum3pHOK4poSvexJGxMjJqMNz4GIxRgefWV_zyXxLB0g.qywFOCEskv_meyO3N7y6MDGz1EwdmoWDSLUM-pxKw8Eg.JPEG/a_e3e3733b24464b9480e68674d40e5c6d.jpg?type=m_2560",
+    color: "bg-[#809198]",
+  },
+  {
+    url: "https://kream-phinf.pstatic.net/MjAyMjEwMzFfOTcg/MDAxNjY3MTg2Mjg1Mzkx.9sazfHrPiXlE3H1rNJ-QJmhq4Gm6h9xfk6deRBv_XXog.v5-ETBfxNv4UoRd_UZwxSX3hnd2QYdMCT07nYLihpDwg.JPEG/a_59b5205aeac342a2ad0a460b9b4e0cff.jpg?type=m_2560",
+    color: "bg-[#676c80]",
+  },
+  {
+    url: "https://kream-phinf.pstatic.net/MjAyMjEwMzFfMTA0/MDAxNjY3MTg2NDIxNzgz.W3e9jsSynIfT3F7K5w6MYYQRUpRypWyR0P0EesRVx0og.mhfz_0yWcmS1uucwlaK6czNNJxqt6kJLpRqUYY8PJuMg.JPEG/a_fb1d8feef429433ea07679d833d658d7.jpg?type=m_2560",
+    color: "bg-[#637056]",
+  },
+  {
+    url: "https://kream-phinf.pstatic.net/MjAyMjEwMzFfMjY4/MDAxNjY3MTg2NDk3MjA2.RUbBQrOHCWKuYwpHHWu0_-CHuGjBISweIc0ISA6PKuYg.2wG_T21f5zW-m2fnqYW6IRjEQD4y4ND6nFxp34IS1Rkg.JPEG/a_a06df9239c8348128d7fe71fc08b2210.jpg?type=m_2560",
+    color: "bg-[#b1adaa]",
+  },
+  {
+    url: "https://kream-phinf.pstatic.net/MjAyMjEwMzFfNCAg/MDAxNjY3MTg2MzU1ODU0.N6cfTjjy3k8B28gJWSdtnbZ0E2jgCNNilmT53S_cxsUg.MxjzTZJi6DCxJkopiSZ3f3jWUuzOpD-Kq3QEB4DVVZYg.JPEG/a_5377b899ce674b669a247f23fcf03138.jpg?type=m_2560",
+    color: "bg-[#1c4468]",
+  },
+  {
+    url: "https://kream-phinf.pstatic.net/MjAyMjEwMzFfOTMg/MDAxNjY3MTg2MTk5MTM2.le0H2sm8Vsjyk2aoF_BbqUfCirjiLRCW6BlxhPudRxgg.0VZBAg-l-Qx7zDxLq0oaoNZfuNMALZcreDnAcrFBGZMg.JPEG/a_417c5780398b486cafea53bc300a1e2b.jpg?type=m_2560",
+    color: "bg-[#707770]",
+  },
 ];
 const Main = () => {
   const callLimit = bannerImgs.length;
@@ -84,16 +118,25 @@ const Main = () => {
           },
         ]}
       />
-      {data?.pages.map((page, i) => (
-        <Fragment key={i}>
-          <Showwindow items={page.data} />
-          <img className="mt-3" src={bannerImgs[i]} alt="" />
-          {i === 0 ? <BrandFocus /> : null}
-        </Fragment>
-      ))}
+      {data?.pages.map((page, i) =>
+        i < 11 ? (
+          <Fragment key={i}>
+            <Showwindow items={page.data} />
+            <div
+              className={cls(
+                "mt-3 w-full flex justify-center",
+                bannerImgs[i].color
+              )}
+            >
+              <img src={bannerImgs[i].url} alt="" />
+            </div>
+            {i === 0 ? <BrandFocus /> : null}
+          </Fragment>
+        ) : null
+      )}
       <div></div>
 
-      <div ref={ref}>
+      <div className="w-full" ref={ref}>
         <Banner />
       </div>
     </>
