@@ -124,7 +124,7 @@ const Main = () => {
             <Showwindow items={page.data} />
             <div
               className={cls(
-                "mt-3 w-full flex justify-center",
+                "mt-12 w-full flex justify-center",
                 bannerImgs[i].color
               )}
             >
