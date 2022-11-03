@@ -18,7 +18,7 @@ const Showwindow = ({ items = [] }: Props) => {
   // });
   return (
     <>
-      <div className="w-[1280px] px-10 mx-auto mt-10">
+      <div className="w-[1280px] px-10 mx-auto mt-24">
         <div className="text-xl font-bold">Just Droped</div>
         <div className="text-gray-400">발매상품</div>
       </div>
@@ -30,7 +30,8 @@ const Showwindow = ({ items = [] }: Props) => {
       <div className="w-[1280px] mx-auto">
         <a
           className="flex justify-center items-center w-28 mx-auto h-10 rounded-xl text-sm mt-5 border border-gray-300"
-          href="#">
+          href="#"
+        >
           더보기
         </a>
       </div>

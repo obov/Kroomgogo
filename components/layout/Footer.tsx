@@ -14,7 +14,7 @@ const Footer = () => {
     { name: "판매자 방문접수", url: "#" },
   ];
   return (
-    <div className="w-full h-[560px] flex flex-col px-10 py-[50px] mt-10 border-t">
+    <div className="w-full h-[560px] flex flex-col px-10 py-[50px] border-t">
       <div className="w-full flex justify-between border-b">
         <div className="w-96 h-52 flex justify-between pb-16">
           <div>
